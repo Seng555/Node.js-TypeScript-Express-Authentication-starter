@@ -11,8 +11,8 @@ npm install
 <h1>npm run dev </h1>
 
 #For build
-<h1>npm run build<h1>
+<h1>npm run build</h1>
 
 #For production 
-<h1>npm run start<h1>
+<h1>npm run start</h1>
 ---
