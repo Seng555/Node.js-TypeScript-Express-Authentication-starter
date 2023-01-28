@@ -1,9 +1,8 @@
 import express, { Express, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
-import dotenv from 'dotenv';
 const compression = require('compression')
-dotenv.config();
+import { config } from "./config/config";
 
 //Import 
 import { auth } from "./middleware/auth";
@@ -13,7 +12,7 @@ import { auth } from "./middleware/auth";
 const index = require('./routes/index')
 const user = require('./routes/user')
 
-const PORT = process.env.PORT || 3000;
+const PORT = config.prot || 3000;
 const app: Express = express();
 app.use(compression())
 app.use(helmet());
@@ -29,7 +28,7 @@ app.use('/user', user)
 // catch 404 and forward to error handler
 app.use(function(req:Request, res:Response, next) {
     res.status(404).json({
-        status: false,
+        status: 404,
         mss: "404, Not found!",
         data: {}
     })
@@ -43,7 +42,7 @@ app.use(function(req:Request, res:Response, next) {
     //console.log("Mssss",res.locals.message)
     // render the error page
     res.status(err.status || 500 ).json({
-        status: false,
+        status: err.status,
         mss: `${err.status}, ${err.message}`,
         data: {}
     })
