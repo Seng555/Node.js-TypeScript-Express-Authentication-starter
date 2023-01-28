@@ -8,11 +8,11 @@ Node.js + TypeScript + Express + Authentication starter
 npm install
 
 #For Dev
-npm run dev 
+<h1>npm run dev </h1>
 
 #For build
-npm run build
+<h1>npm run build</h1>
 
 #For production 
-npm run start
+<h1>npm run start</h1>
 ---
